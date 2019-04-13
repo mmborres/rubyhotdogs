@@ -1,0 +1,9 @@
+<h2>Hotdogs Database</h2>
+
+<% @hotdogs.each do |h| %>
+  <p>
+    <a href="/hotdogs/<%= h["id"] %>">
+      <%= h["name"] %>
+    </a>
+  </p>
+<% end %>

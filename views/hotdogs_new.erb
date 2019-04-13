@@ -1,0 +1,33 @@
+<h2>Add Hotdog to the Database</h2>
+
+<form action="/hotdogs" method="post">
+  <label>
+    Name:
+    <input type="text" name="name" placeholder="Hotdog name" required autofocus>
+  </label>
+
+  <br>
+  <label>
+    Description:
+    <input type="text" name="description" placeholder="Hotdog description">
+  </label>
+
+  <br>
+  <label>
+    Image:
+    <input type="url" name="image" placeholder="http://...">
+  </label>
+
+  <label>
+    Country of Origin:
+    <select name="country_id">
+      <option></option>
+      <% Country.all.each do |c| %>
+        <option value="<%= c.id %>"><%= c.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <br>
+  <button>Add This Awesome Hotdog to the Database</button>
+</form>

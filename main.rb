@@ -14,118 +14,118 @@ ActiveRecord::Base.establish_connection(
 ActiveRecord::Base.logger = Logger.new(STDERR)
 
 # Models
-class Butterfly < ActiveRecord::Base
-  belongs_to :plant, :optional => true # Since Rails 5
+class Hotdog < ActiveRecord::Base
+  belongs_to :country, :optional => true # Since Rails 5
 end
 
-class Plant < ActiveRecord::Base
-  has_many :butterflies
+class Country < ActiveRecord::Base
+  has_many :hotdogs
 end
 
 get '/' do
   erb :home
 end
 
-# INDEX - Show all butterflies
-get '/butterflies' do
-  @butterflies = Butterfly.all
-  erb :butterflies_index
+# INDEX - Show all hotdogs
+get '/hotdogs' do
+  @hotdogs = Hotdog.all
+  erb :hotdogs_index
 end
 
-# NEW - Form for adding a new butterfly
-get '/butterflies/new' do
-  erb :butterflies_new
+# NEW - Form for adding a new hotdog
+get '/hotdogs/new' do
+  erb :hotdogs_new
 end
 
-# CREATE - Add a new butterfly to the database
-post '/butterflies' do
-  butterfly = Butterfly.new
-  butterfly.name = params[:name]
-  butterfly.family = params[:family]
-  butterfly.image = params[:image]
-  butterfly.plant_id = params[:plant_id]
-  butterfly.save
+# CREATE - Add a new hotdog to the database
+post '/hotdogs' do
+  hotdog = Hotdog.new
+  hotdog.name = params[:name]
+  hotdog.description = params[:description]
+  hotdog.image = params[:image]
+  hotdog.plant_id = params[:plant_id]
+  hotdog.save
 
-  redirect to("/butterflies/#{ butterfly.id }") # GET request
+  redirect to("/hotdogs/#{ hotdog.id }") # GET request
 end
 
-# SHOW - Shows a single butterfly in more detail
-get '/butterflies/:id' do
-  @butterfly = Butterfly.find params[:id]
-  erb :butterflies_show
+# SHOW - Shows a single hotdog in more detail
+get '/hotdogs/:id' do
+  @hotdog = Hotdog.find params[:id]
+  erb :hotdogs_show
 end
 
-# EDIT - Shows a form to edit a single butterfly
-get '/butterflies/:id/edit' do
-  @butterfly = Butterfly.find params[:id]
-  erb :butterflies_edit
+# EDIT - Shows a form to edit a single hotdog
+get '/hotdogs/:id/edit' do
+  @hotdog = Hotdog.find params[:id]
+  erb :hotdogs_edit
 end
 
-# UPDATE - Modify the database with new information for a particular butterfly
-post '/butterflies/:id' do
-  butterfly = Butterfly.find params[:id]
-  butterfly.name = params[:name]
-  butterfly.family = params[:family]
-  butterfly.image = params[:image]
-  butterfly.plant_id = params[:plant_id]
-  butterfly.save
-  redirect to("/butterflies/#{ params[:id] }")
+# UPDATE - Modify the database with new information for a particular hotdog
+post '/hotdogs/:id' do
+  hotdog = Hotdog.find params[:id]
+  hotdog.name = params[:name]
+  hotdog.description = params[:description]
+  hotdog.image = params[:image]
+  hotdog.plant_id = params[:plant_id]
+  hotdog.save
+  redirect to("/hotdogs/#{ params[:id] }")
 end
 
-# DESTROY - Deletes a given a butterfly from the database
-get '/butterflies/:id/delete' do
-  butterfly = Butterfly.find params[:id]
-  butterfly.destroy
-  redirect to("/butterflies")
+# DESTROY - Deletes a given a hotdog from the database
+get '/hotdogs/:id/delete' do
+  hotdog = Hotdog.find params[:id]
+  hotdog.destroy
+  redirect to("/hotdogs")
 end
 
-# Plants CRUD ######################################################
+# Countries CRUD ######################################################
 # INDEX
-get '/plants' do
-  @plants = Plant.all
-  erb :plants_index
+get '/countrys' do
+  @countries = Country.all
+  erb :countries_index
 end
 
 # NEW
-get '/plants/new' do
-  erb :plants_new
+get '/countries/new' do
+  erb :countries_new
 end
 
 # CREATE
-post '/plants' do
-  plant = Plant.new
-  plant.name = params[:name]
-  plant.image = params[:image]
-  plant.save
-  redirect to("/plants/#{ plant.id }")
+post '/countries' do
+  country = Country.new
+  country.name = params[:name]
+  country.image = params[:image]
+  country.save
+  redirect to("/countries/#{ country.id }")
 end
 
 # SHOW
-get '/plants/:id' do
-  @plant = Plant.find params[:id]
-  erb :plants_show
+get '/countries/:id' do
+  @country = Country.find params[:id]
+  erb :countries_show
 end
 
 # EDIT
-get '/plants/:id/edit' do
-  @plant = Plant.find params[:id]
-  erb :plants_edit
+get '/countries/:id/edit' do
+  @country = Country.find params[:id]
+  erb :countries_edit
 end
 
 # UPDATE
-post '/plants/:id' do
-  plant = Plant.find params[:id]
-  plant.name = params[:name]
-  plant.image = params[:image]
-  plant.save
-  redirect to("/plants/#{ plant.id }")
+post '/countries/:id' do
+  country = Country.find params[:id]
+  country.name = params[:name]
+  country.image = params[:image]
+  country.save
+  redirect to("/countries/#{ country.id }")
 end
 
 # DELETE
-get '/plants/:id/delete' do
-  plant = Plant.find params[:id]
-  plant.destroy
-  redirect to("/plants")
+get '/countries/:id/delete' do
+  country = Country.find params[:id]
+  country.destroy
+  redirect to("/countries")
 end
 
 after do

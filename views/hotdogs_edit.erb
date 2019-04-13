@@ -1,0 +1,34 @@
+<h2>Edit Hotdog</h2>
+
+<form action="/hotdogs/<%= @hotdog["id"] %>" method="post">
+  <label>
+    Name:
+    <input type="text" name="name" value="<%= @hotdog["name"] %>" placeholder="Hotdog name" required autofocus>
+  </label>
+
+  <br>
+  <label>
+    Description:
+    <input type="text" name="description" value="<%= @hotdog["description"] %>" placeholder="Hotdog description">
+  </label>
+
+  <br>
+  <label>
+    Image:
+    <input type="url" name="image" value="<%= @hotdog["image"] %>" placeholder="http://...">
+  </label>
+
+  <br>
+  <label>
+    Country of Origin:
+    <select name="country_id">
+      <option></option>
+      <% Country.all.each do |c| %>
+        <option value="<%= c.id %>" <%= "selected" if c.id == @hotdog.country_id %>><%= c.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <br>
+  <button>Update Hotdog Entry</button>
+</form>

@@ -1,0 +1,20 @@
+<h2><%= @hotdog["name"] %></h2>
+<h3>Description: <em><%= @hotdog["description"] %></em></h3>
+
+<% unless @hotdog.country.nil? %>
+  <h3>
+    Country of Origin:
+    <a href="/countries/<%= @hotdog.country.id %>">
+      <%= @hotdog.country.name %>
+    </a>
+  </h3>
+<% end %>
+
+<% unless @hotdog["image"].nil? %>
+  <img class="feature" src="<%= @hotdog["image"] %>" alt="<%= @hotdog["name"] %>">
+<% end %>
+
+<div class="controls">
+  <a href="/hotdogs/<%= @hotdog["id"] %>/edit">Edit</a>
+  <a href="/hotdogs/<%= @hotdog["id"] %>/delete">Delete</a>
+</div>

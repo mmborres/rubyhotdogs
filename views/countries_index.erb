@@ -1,0 +1,9 @@
+<h2>All Countries with Awesome Hotdogs</h2>
+
+<% @countries.each do |c| %>
+  <p>
+    <a href="/countries/<%= c.id %>">
+      <%= c.name %>
+    </a>
+  </p>
+<% end %>
