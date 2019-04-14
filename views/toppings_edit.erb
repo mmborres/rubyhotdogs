@@ -1,0 +1,25 @@
+<h2>Edit Topping</h2>
+
+<form action="/toppings/<%= @topping.id %>" method="post" class="pLabel">
+  <label>
+    <b>Name:</b>
+    <input type="text" name="name" value="<%= @topping.name %>" placeholder="Topping name" required autofocus>
+  </label>
+    <br>
+    <br>
+  <label>
+    <b>Description:</b>
+    <br>
+    <textarea rows = "5" cols = "78" name = "description" placeholder="Topping description"><%= @topping["description"] %></textarea>
+  </label>
+
+    <br><br>
+  <label>
+    <b>Image:</b><br>
+    <input type="url" name="image" value="<%= @topping.image %>" placeholder="http://..." size="80">
+  </label>
+    <br><br>&nbsp;
+  <button>Update Topping Entry</button>
+    <br>&nbsp;
+</form>
+<br>&nbsp;

@@ -1,25 +1,15 @@
 <h2>Add Hotdog to the Database</h2>
 
-<form action="/hotdogs" method="post">
+<form action="/hotdogs" method="post" class="pLabel">
   <label>
-    Name:
+    <b>Name:</b>
     <input type="text" name="name" placeholder="Hotdog name" required autofocus>
   </label>
 
-  <br>
+<br>
+<br>
   <label>
-    Description:
-    <input type="text" name="description" placeholder="Hotdog description">
-  </label>
-
-  <br>
-  <label>
-    Image:
-    <input type="url" name="image" placeholder="http://...">
-  </label>
-
-  <label>
-    Country of Origin:
+    <b>Country of Origin:</b>
     <select name="country_id">
       <option></option>
       <% Country.all.each do |c| %>
@@ -28,6 +18,54 @@
     </select>
   </label>
 
+<br>
+  <br>
+  <label>
+    <b>Description:</b>
+    <br>
+    <!--input type="text" name="description" placeholder="Hotdog description" size="200"-->
+    <textarea rows = "5" cols = "78" name = "description" placeholder="Hotdog description"></textarea>
+  </label>
+
+  <br>
+  <br>
+  <label>
+    <b>Image:</b>
+    <br>
+    <input type="url" name="image" placeholder="http://..." size="80">
+  </label>
+
+  <br>
+  <br>&nbsp;
+  <label><b>Ingredients: </b>
+  <br>
+
+    <% idd = -1 %>
+    <% Ingredientlookup.all.each do |h| %>
+    <input type="checkbox" value="<%= h.name %>" name="ingredient_<%= h.id %>"> <%= h.name %></input>
+
+    <br>
+    <% end %>
+  </label>
+
+
+<br>
+  <label><b>Toppings: </b>
+  <br>
+
+    <% idd = -1 %>
+    <% Toppinglookup.all.each do |h| %>
+    <input type="checkbox" value="<%= h.name %>" name="topping_<%= h.id %>"> <%= h.name %></input>
+
+    <br>
+    <% end %>
+  </label>
+
+
+ <br>
+
   <br>
   <button>Add This Awesome Hotdog to the Database</button>
+  <br>&nbsp;
 </form>
+<br>&nbsp;

@@ -1,15 +1,19 @@
 <h2>Edit Country</h2>
 
-<form action="/countries/<%= @country.id %>" method="post">
+<form action="/countries/<%= @country.id %>" method="post" class="pLabel">
   <label>
-    Name:
+    <b>Name:</b>
     <input type="text" name="name" value="<%= @country.name %>" placeholder="Country name" required autofocus>
   </label>
 
+   <br>
   <label>
-    Flag:
+    <b>Flag:</b>
     <input type="url" name="flag" value="<%= @country.flag %>" placeholder="http://...">
   </label>
 
+  <br><br>
   <button>Update Country Entry</button>
+  <br>&nbsp;
 </form>
+<br>&nbsp;

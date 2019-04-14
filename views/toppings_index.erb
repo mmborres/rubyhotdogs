@@ -1,0 +1,26 @@
+<h2>All Available Toppings for Awesome Hotdogs</h2>
+
+  <table>
+    <% @toppings.each do |h| %>
+    <tr>
+        <td><a href="/toppings/<%= h.id %>">
+          <%= h.name %>
+        </a></td>
+        <td>
+        <% unless h.image.nil? %>
+        <a href="/toppings/<%= h.id %>"><img class="indexpageImg" src="<%= h.image %>" alt="<%= h.name %>"></a>
+        <% end %>
+        </td>
+    </tr>
+        <% unless h.description.nil? %>
+        <tr>
+        <td>&nbsp;</td>
+        <td>
+        Description: <br>
+        <%= h.description %>
+        </td>
+        <tr>
+        <% end %>
+    <% end %>
+  </table>
+

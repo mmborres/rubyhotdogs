@@ -1,9 +1,23 @@
 <h2>Hotdogs Database</h2>
 
-<% @hotdogs.each do |h| %>
-  <p>
-    <a href="/hotdogs/<%= h["id"] %>">
-      <%= h["name"] %>
-    </a>
-  </p>
+<h3>Total Hotdogs: <%= @hotdogstotal %></h3>
+
+<% @hotdogsitems.each do |key, val| %>
+<br>
+<h3><u><%= key.upcase %></u></h3>
+
+<% val.each do |bf| %>
+        <br>
+        <a href="/hotdogs/<%= bf["id"] %>">
+            <%= bf["name"] %>
+        </a>
+        <br>
+
+        <div class="indexlist">
+          <a href="/hotdogs/<%= bf["id"] %>"><img src="<%= bf["image"] %>" class="indexpageImg"></a>
+          <span class="tabitem"><%= bf["description"] %></span>
+        </div>
+<% end %>
+
+<p>Number of Amazing Hotdogs from <%= key %> : <%= val.length %></p>
 <% end %>

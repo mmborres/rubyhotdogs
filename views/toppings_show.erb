@@ -1,0 +1,33 @@
+<h2><%= @topping.name %></h2>
+<h3>Description: <em><%= @topping["description"] %></em></h3>
+
+<% unless @topping["image"].nil? %>
+  <img src="<%= @topping["image"] %>" alt="<%= @topping["name"] %>">
+<% end %>
+<% if @topping["image"] == nil %>
+<% imgTopping = ""%>  
+<% end %>
+
+
+<% unless @topping.hotdogs.empty? %>
+  <h3>Awesome Hotdogs Using this Topping</h3>
+  <table>
+    <% @topping.hotdogs.each do |h| %>
+    <tr>
+        <td><a href="/hotdogs/<%= h.id %>">
+          <%= h.name %>
+        </a></td>
+        <td>
+        <% unless h.image.nil? %>
+        <a href="/hotdogs/<%= h.id %>"><img class="indexpageImg" src="<%= h.image %>" alt="<%= h.name %>"><a href="/hotdogs/<%= h.id %>">
+        <% end %>
+        </td>
+    <tr>
+    <% end %>
+  </table>
+<% end %>
+
+<div class="controls">
+  <a href="/toppings/<%= @topping.id %>/edit">Edit</a>
+  <a href="/toppings/<%= @topping.id %>/delete">Delete</a>
+</div>

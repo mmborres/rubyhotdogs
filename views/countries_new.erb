@@ -1,15 +1,19 @@
 <h2>New Country Entry</h2>
 
-<form action="/countries" method="post">
+<form action="/countries" method="post" class="pLabel">
   <label>
-    Name:
+    <b>Name:</b>
     <input type="text" name="name" placeholder="Country name" required autofocus>
   </label>
-
+  <br><br>
   <label>
-    Flag:
-    <input type="url" name="flag" placeholder="http://...">
-  </label>
+    <b>Flag:</b><br>
+    <input type="url" name="flag" placeholder="http://..." size="80">
 
+  </label>
+  <br>
+  <br>
   <button>Add New Country Entry</button>
+  <br>&nbsp;
 </form>
+<br>&nbsp;

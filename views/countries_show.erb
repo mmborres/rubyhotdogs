@@ -1,21 +1,29 @@
 <h2><%= @country.name %></h2>
 
-<% unless @country.hotdogs.empty? %>
-  <h3>Hotdogs in the Country</h3>
-  <ul>
-    <% @country.hotdogs.each do |h| %>
-      <li>
-        <a href="/hotdogs/<%= h.id %>">
-          <%= h.name %>
-        </a>
-      </li>
-    <% end %>
-  </ul>
+<% unless @country.flag.nil? || @country.flag.empty? %>
+  <img class="imgflag" src="<%= @country.flag %>" alt="<%= @country.name %>">
 <% end %>
 
-<% unless @country.flag.nil? || @country.flag.empty? %>
-  <img class="feature" src="<%= @country.flag %>" alt="<%= @country.name %>">
+<% unless @country.hotdogs.empty? %>
+  <h3>Awesome Hotdogs in the Country</h3>
+  <table>
+    <% @country.hotdogs.each do |h| %>
+      <tr>
+        <td><a href="/hotdogs/<%= h.id %>">
+          <%= h.name %>
+        </a></td>
+        <td>
+        <% unless h.image.nil? %>
+        <img class="indexpageImg" src="<%= h.image %>" alt="<%= h.name %>">
+        <% end %>
+        </td>
+      <tr>
+    <% end %>
+  </table>
+  Total: <%= @country.hotdogs.size %>
 <% end %>
+<br>
+
 
 <div class="controls">
   <a href="/countries/<%= @country.id %>/edit">Edit</a>

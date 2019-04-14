@@ -1,24 +1,12 @@
 <h2>Edit Hotdog</h2>
 
-<form action="/hotdogs/<%= @hotdog["id"] %>" method="post">
+<form action="/hotdogs/<%= @hotdog["id"] %>" method="post" class="pLabel">
   <label>
     Name:
     <input type="text" name="name" value="<%= @hotdog["name"] %>" placeholder="Hotdog name" required autofocus>
   </label>
 
-  <br>
-  <label>
-    Description:
-    <input type="text" name="description" value="<%= @hotdog["description"] %>" placeholder="Hotdog description">
-  </label>
-
-  <br>
-  <label>
-    Image:
-    <input type="url" name="image" value="<%= @hotdog["image"] %>" placeholder="http://...">
-  </label>
-
-  <br>
+ <br>
   <label>
     Country of Origin:
     <select name="country_id">
@@ -29,6 +17,51 @@
     </select>
   </label>
 
+
+  <br>
+  <label>
+    Description:
+    <br>
+    <!--input type="text" name="description" value="<%= @hotdog["description"] %>" placeholder="Hotdog description" size="200"-->
+    <textarea rows = "5" cols = "78" name = "description" placeholder="Hotdog description"><%= @hotdog["description"] %></textarea>
+  </label>
+
+  <br>
+  <label>
+    Image:
+    <br>
+    <input type="url" name="image" value="<%= @hotdog["image"] %>" placeholder="http://..." size="80">
+  </label>
+
+  <br>
+  <label>Ingredients: 
+  <br>
+    <input type="hidden" value="<%= @hotdog.id %>" name="hotdog_id">
+    <% Ingredientlookup.all.each do |h| %>
+    <% idd = -1 %>
+    <input type="checkbox" value="<%= h.name %>" name="ingredient_<%= h.id %>" <% Ingredient.all.each do |hh| %> <% if h.name == hh.name && hh.hotdog_id == @hotdog.id %>checked<% idd = hh.id %><% end %> <% end %> ><%= h.name %>
+    <input type="hidden" value="<%= idd %>" name="ingredient_<%= h.id %>_id">
+    <br>
+    <% end %>
+  </label>
+
+
+<br>
+  <label>Toppings: 
+  <br>
+    <input type="hidden" value="<%= @hotdog.id %>" name="hotdog_id">
+    <% Toppinglookup.all.each do |h| %>
+    <% idd = -1 %>
+    <input type="checkbox" value="<%= h.name %>" name="topping_<%= h.id %>" <% Topping.all.each do |hh| %> <% if h.name == hh.name && hh.hotdog_id == @hotdog.id %>checked<% idd = hh.id %><% end %> <% end %> ><%= h.name %>
+    <input type="hidden" value="<%= idd %>" name="topping_<%= h.id %>_id">
+    <br>
+    <% end %>
+  </label>
+
+
+ <br>
   <br>
   <button>Update Hotdog Entry</button>
+  <br>&nbsp;
 </form>
+<br>&nbsp;

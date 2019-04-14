@@ -1,0 +1,45 @@
+id,name,country_id,topping_id,description,image
+1,Chicago,1,2,"A Chicago-style hot dog, Chicago Dog, or Chicago Red Hot is an all-beef frankfurter on a poppy seed bun, originating from the city of Chicago, Illinois.",http://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Chicago-style_hot_dog_Johnniebeefs.jpg/440px-Chicago-style_hot_dog_Johnniebeefs.jpg
+2,Austrian,2,26,"An Austrian ""hot dog with grill sausage."" In Austria any sausage placed into a piece of hollowed-out baguette bread is called a ""hot dog.""",https://media-cdn.tripadvisor.com/media/photo-s/07/d8/50/7a/hotdog.jpg
+3,French,3,1,"French hotdogs: You take a french baguette, toast it, cut a hole in the middle of the baquette and put some sauce on the bottom then add the hot dog.",https://danskmadpaaengelsk.files.wordpress.com/2014/01/fransk_hotdog619x340.png
+4,Sonoran,1,2,"A bacon-wrapped hot dog topped with pinto beans, grilled onions and green peppers, and tomatillo jalapeño salsa.",https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvdGhpbmdfaW1hZ2VzLzIxYWQwNGQ2LTIyOGUtNDkxMi1iODU1LTRkNDhlNTU0ZTIzZGY4ODExNDc0OTVkZmVmMjEyM19Tb25vcmFuSG90RG9nX1RyaWJ1bmUgQ29udGVudCBBZ2VuY3kgTExDIDogQWxhbXkgU3RvY2sgUGhvdG8uanBnIl0sWyJwIiwiY29udmVydCIsIiJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA4MSAtYXV0by1vcmllbnQiXSxbInAiLCJ0aHVtYiIsIjU4MHg1ODAjIl1d/SonoranHotDog_Tribune%20Content%20Agency%20LLC%20%3A%20Alamy%20Stock%20Photo.jpg
+5,"Cincinnati Coney",1,2,"A pork and beef hot dog topped with cinnamon and chocolate-tinged chili and Cheddar cheese.",https://i.pinimg.com/originals/80/14/2e/80142ebd7b8720115d65f56e55b8c4d6.jpg
+6,"New York",1,4,"A hot dog in the Big Apple is traditionally topped with a spicy brown mustard and either sauerkraut or onions sautéed with tomato paste.","https://hips.hearstapps.com/del.h-cdn.co/assets/cm/15/10/54f6529383bd9_-_beer-steeped-sauerkraut-fyeghq-xl.jpg?crop=1xw:1.0xh;center,top&resize=768:*"
+7,"Kansas City",1,3,"Traditional ballpark frank and the deliciously gooey Reuben sandwich, stacked high with corned beef and Swiss. All-beef dogs are topped with melted cheese, caraway, sauerkraut, and Thousand Island dressing.",https://hips.hearstapps.com/del.h-cdn.co/assets/cm/15/10/54f65293ab8c5_-_grilled-reuben-dogs-recipe-rbk0611-i7mkgl-agu4th-xl.jpg?resize=768:*
+8,MyCollection,2,,Test,https://www.thewarehouse.co.nz/dw/image/v2/AAWO_PRD/on/demandware.static/-/Sites-twl-master-catalog/default/dw5661f4a0/5c/fb/R2152030_00.jpg?sw=484&sh=484&sm=fit
+id,name,flag
+1,USA,https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png
+2,Austria,https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/1200px-Flag_of_Austria.svg.png
+3,France,https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/250px-Flag_of_France.svg.png
+id,name,hotdog_id,description,image
+1,Mustard,1,,
+2,Onions,1,,
+3,Tomato,1,,
+4,Pepper,1,,
+5,Salt,1,,
+6,Ketchup,4,,
+7,Mayonnaise,4,,
+8,Bacon,7,,
+9,Beans,7,,
+10,Salsa,7,,
+11,"Chili Sauce",7,,
+12,Cinnamon,7,,
+13,"Cheddar Cheese",7,,
+14,Sauerkraut,7,,
+15,"Thousand Island Dressing",7,,
+16,Caraway,7,,
+17,"Red Onion Sauce",7,,
+18,"Pickle Relish",1,,https://cdn2.bigcommerce.com/n-nr1m3w/c3s1a/products/876/images/1065/IMG_0428__71016.1395525058.1280.1280.JPG?c=2
+19,Dill,1,,https://food.fnr.sndimg.com/content/dam/images/food/fullset/2007/10/11/0/EA1110_Pickle.jpg.rend.hgtvcom.826.620.suffix/1382538655602.jpeg
+23,Mustard,8,,
+24,Mustard,2,,
+25,Mayonnaise,2,,
+26,"Chili Sauce",2,,
+id,name,hotdog_id,description,image
+1,Pork,5,,
+2,Beef,1,,
+3,Beef,5,,
+4,Beef,7,,
+8,Beef,8,,
+9,Pork,2,,
+10,Beef,2,,
