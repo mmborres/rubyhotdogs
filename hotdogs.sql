@@ -8,10 +8,12 @@ CREATE TABLE toppings (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name TEXT,
 	hotdog_id INTEGER,
+	toppinglookup_id, INTEGER,
 	description TEXT,
 	image TEXT, -- URL for a photo
 	UNIQUE(name, hotdog_id),
-	FOREIGN KEY (hotdog_id) REFERENCES hotdogs(id)
+	FOREIGN KEY (hotdog_id) REFERENCES hotdogs(id),
+	FOREIGN KEY (toppinglookup_id) REFERENCES toppinglookups(id)
 );
 
 CREATE TABLE hotdogs (
