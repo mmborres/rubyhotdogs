@@ -54,6 +54,7 @@
     <% idd = -1 %>
     <input type="checkbox" value="<%= h.name %>" name="topping_<%= h.id %>" <% Topping.all.each do |hh| %> <% if h.name == hh.name && hh.hotdog_id == @hotdog.id %>checked<% idd = hh.id %><% end %> <% end %> ><%= h.name %>
     <input type="hidden" value="<%= idd %>" name="topping_<%= h.id %>_id">
+    <input type="hidden" value="<%= h.id %>" name="toppinglookup_id_<%= h.id %>">
     <br>
     <% end %>
   </label>

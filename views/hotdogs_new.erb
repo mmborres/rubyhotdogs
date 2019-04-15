@@ -56,7 +56,7 @@
     <% idd = -1 %>
     <% Toppinglookup.all.each do |h| %>
     <input type="checkbox" value="<%= h.name %>" name="topping_<%= h.id %>"> <%= h.name %></input>
-
+    <input type="hidden" value="<%= h.id %>" name="toppinglookup_id_<%= h.id %>">
     <br>
     <% end %>
   </label>

@@ -13,6 +13,12 @@
     <textarea rows = "5" cols = "78" name = "description" placeholder="Topping description"><%= @topping["description"] %></textarea>
   </label>
 
+
+     <% if @topping.image.nil? %>
+        <% timage = Toppinglookup.find @topping.toppinglookup_id %>
+        <% @topping.image = timage.image %>
+    <% end %>
+
     <br><br>
   <label>
     <b>Image:</b><br>

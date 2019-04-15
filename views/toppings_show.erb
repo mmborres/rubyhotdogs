@@ -1,12 +1,15 @@
 <h2><%= @topping.name %></h2>
 <h3>Description: <em><%= @topping["description"] %></em></h3>
 
+        <% if @topping["image"].nil? %>
+          <% timage = Toppinglookup.find @topping["toppinglookup_id"] %>
+          <% @topping["image"] = timage.image %>
+        <% end %>
+
 <% unless @topping["image"].nil? %>
   <img src="<%= @topping["image"] %>" alt="<%= @topping["name"] %>">
 <% end %>
-<% if @topping["image"] == nil %>
-<% imgTopping = ""%>  
-<% end %>
+
 
 
 <% unless @topping.hotdogs.empty? %>

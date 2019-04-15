@@ -30,6 +30,7 @@ CREATE TABLE hotdogs (
 CREATE TABLE toppinglookups (			
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name TEXT NOT NULL UNIQUE,
+	description TEXT,
 	image TEXT -- URL for a photo
 );
 
@@ -37,10 +38,12 @@ CREATE TABLE buns (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name TEXT,
 	hotdog_id INTEGER,
+	bunlookup_id, INTEGER,
 	description TEXT,
 	image TEXT, -- URL for a photo
 	UNIQUE(name, hotdog_id),
-	FOREIGN KEY (hotdog_id) REFERENCES hotdogs(id)
+	FOREIGN KEY (hotdog_id) REFERENCES hotdogs(id),
+	FOREIGN KEY (bunlookup_id) REFERENCES bunlookups(id)
 );
 
 CREATE TABLE bunlookups (			
@@ -53,10 +56,12 @@ CREATE TABLE ingredients (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name TEXT,
 	hotdog_id INTEGER,
+	ingredientlookup_id, INTEGER,
 	description TEXT,
 	image TEXT, -- URL for a photo
 	UNIQUE(name, hotdog_id),
-	FOREIGN KEY (hotdog_id) REFERENCES hotdogs(id)
+	FOREIGN KEY (hotdog_id) REFERENCES hotdogs(id),
+	FOREIGN KEY (ingredientlookup_id) REFERENCES ingredientlookups(id)	
 );
 
 CREATE TABLE ingredientlookups (			
@@ -69,11 +74,12 @@ CREATE TABLE ingredientlookups (
 -- seed
 INSERT INTO ingredientlookups (name) VALUES ('Pork');
 INSERT INTO ingredientlookups (name) VALUES ('Beef');
+INSERT INTO ingredientlookups (name) VALUES ('Vegan');
 
-INSERT INTO ingredients (name, hotdog_id) VALUES ('Pork', 5);
-INSERT INTO ingredients (name, hotdog_id) VALUES ('Beef', 1);
-INSERT INTO ingredients (name, hotdog_id) VALUES ('Beef', 5);
-INSERT INTO ingredients (name, hotdog_id) VALUES ('Beef', 7);
+INSERT INTO ingredients (name, hotdog_id, ingredientlookup_id) VALUES ('Pork', 5, 1);
+INSERT INTO ingredients (name, hotdog_id, ingredientlookup_id) VALUES ('Beef', 1, 2);
+INSERT INTO ingredients (name, hotdog_id, ingredientlookup_id) VALUES ('Beef', 5, 2);
+INSERT INTO ingredients (name, hotdog_id, ingredientlookup_id) VALUES ('Beef', 7, 2);
 
 INSERT INTO toppinglookups (name) VALUES ('Mustard');
 INSERT INTO toppinglookups (name) VALUES ('Onions');
@@ -95,25 +101,25 @@ INSERT INTO toppinglookups (name) VALUES ('Red Onion Sauce');
 INSERT INTO toppinglookups (name) VALUES ('Pickle Relish');
 INSERT INTO toppinglookups (name) VALUES ('Dill');
 
-INSERT INTO toppings (name, hotdog_id) VALUES ('Mustard', 1);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Onions', 1);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Tomato', 1);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Pepper', 1);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Salt', 1);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Ketchup', 4);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Mayonnaise', 4);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Bacon', 7);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Beans', 7);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Salsa', 7);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Chili Sauce', 7);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Cinnamon', 7);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Cheddar Cheese', 7);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Sauerkraut', 7);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Thousand Island Dressing', 7);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Caraway', 7);
-INSERT INTO toppings (name, hotdog_id) VALUES ('Red Onion Sauce', 7);
-INSERT INTO toppings (name, hotdog_id, image) VALUES ('Pickle Relish', 1, 'https://cdn2.bigcommerce.com/n-nr1m3w/c3s1a/products/876/images/1065/IMG_0428__71016.1395525058.1280.1280.JPG?c=2');
-INSERT INTO toppings (name, hotdog_id, image) VALUES ('Dill', 1, 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2007/10/11/0/EA1110_Pickle.jpg.rend.hgtvcom.826.620.suffix/1382538655602.jpeg');
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Mustard', 1, 1);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Onions', 1, 2);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Tomato', 1, 3);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Pepper', 1, 4);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Salt', 1, 5);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Ketchup', 4, 6);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Mayonnaise', 4, 7);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Bacon', 7, 8);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Beans', 7, 9);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Salsa', 7, 10);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Chili Sauce', 7, 11);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Cinnamon', 7, 12);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Cheddar Cheese', 7, 13);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Sauerkraut', 7, 14);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Thousand Island Dressing', 7, 15);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Caraway', 7, 16);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id) VALUES ('Red Onion Sauce', 7, 17);
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id, image) VALUES ('Pickle Relish', 1, 18, 'https://cdn2.bigcommerce.com/n-nr1m3w/c3s1a/products/876/images/1065/IMG_0428__71016.1395525058.1280.1280.JPG?c=2');
+INSERT INTO toppings (name, hotdog_id, toppinglookup_id, image) VALUES ('Dill', 1, 19, 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2007/10/11/0/EA1110_Pickle.jpg.rend.hgtvcom.826.620.suffix/1382538655602.jpeg');
 
 
 INSERT INTO bunlookups (name) VALUES ('Poppy Seed');

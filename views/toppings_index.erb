@@ -7,6 +7,10 @@
           <%= h.name %>
         </a></td>
         <td>
+        <% if h.image.nil? %>
+          <% timage = Toppinglookup.find h.toppinglookup_id %>
+          <% h.image = timage.image %>
+        <% end %>
         <% unless h.image.nil? %>
         <a href="/toppings/<%= h.id %>"><img class="indexpageImg" src="<%= h.image %>" alt="<%= h.name %>"></a>
         <% end %>

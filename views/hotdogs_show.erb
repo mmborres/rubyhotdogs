@@ -1,5 +1,6 @@
 <h2><%= @hotdog["name"] %></h2>
-<h3>Description: <em><%= @hotdog["description"] %></em></h3>
+<h3>Description: <em><br>
+<%= @hotdog["description"] %></em></h3>
 
   <h3>
     Country of Origin:
@@ -28,6 +29,10 @@
           <%= h.name %>
         </a></td>
         <td>
+        <% if h.image.nil? %>
+          <% timage = Toppinglookup.find h.toppinglookup_id %>
+          <% h.image = timage.image %>
+        <% end %>
         <% unless h.image.nil? %>
         <a href="/toppings/<%= h.id %>"><img class="indexpageImg" src="<%= h.image %>" alt="<%= h.name %>"></a>
         <% end %>

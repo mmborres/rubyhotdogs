@@ -122,6 +122,7 @@ post '/hotdogs' do
       ing = Topping.new 
       ing.hotdog_id = hotdog.id
       ing.name = name
+      ing.toppinglookup_id = dd #params[:toppinglookup_id]
       ing.save
 
       #save to Hotdog
@@ -229,6 +230,7 @@ post '/hotdogs/:id' do
           ing = Topping.new
           ing.name = name
           ing.hotdog_id = hotdog.id
+          ing.toppinglookup_id = dd #params[:toppinglookup_id]
           ing.save
           #save to Hotdog
           hotdog.topping_id = ing.id
@@ -240,7 +242,7 @@ post '/hotdogs/:id' do
         parid = params[par].to_i #get ID
 
         if parid > -1 #if ID found
-binding.pry          
+#binding.pry          
           ing = Topping.find parid #find topping in database
           if ing != nil #delete if found, else ignore
             ing.destroy
@@ -323,6 +325,8 @@ end
 get '/toppings' do
   @toppings = Topping.all
   @toppings = @toppings.uniq {|x| x["name"] }
+  #@toppingImages = Toppinglookup.all
+#binding.pry
 #binding.pry
   erb :toppings_index
 end
@@ -334,17 +338,29 @@ end
 
 # CREATE
 post '/toppings' do
+  topLookup = Toppinglookup.new
+  topLookup.name = params[:name]
+  topLookup.image = params[:image]
+  topLookup.description = params[:description]
+binding.pry
+  topLookup.save
+
   topping = Topping.new
   topping.name = params[:name]
   topping.image = params[:image]
   topping.description = params[:description]
+  topping.toppinglookup_id = topLookup.id
+binding.pry
   topping.save
+
+binding.pry
   redirect to("/toppings/#{ topping.id }")
 end
 
 # SHOW
 get '/toppings/:id' do
   @topping = Topping.find params[:id]
+#binding.pry
   erb :toppings_show
 end
 
